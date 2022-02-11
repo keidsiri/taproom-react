@@ -33,3 +33,11 @@ handleAddingNewBeerToList = (newBeer) => {
     formVisibleOnPage: false 
   });
 }
+
+handleDecrementItemQuantity = (quantityItem) => {
+  const updateItemQuantity = [...this.state.mainItemList];
+  updateItemQuantity[quantityItem].quantity = updateItemQuantity[quantityItem].quantity-1;
+  this.setState({
+    mainItemList: updateItemQuantity
+  })
+}
