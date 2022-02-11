@@ -11,33 +11,54 @@ class BeerControl extends React.Component {
       mainBeerList: []
     };
   }
-}
 
-handleClick = () => {
-  if (this.state.selectedBeer != null) {
+  handleClick = () => {
+    if (this.state.selectedBeer != null) {
+      this.setState({
+        formVisibleOnPage: false,
+        selectedBeer: null
+      });
+    } else {
+      this.setState(prevState => ({
+        formVisibleOnPage: !prevState.formVisibleOnPage,
+      }));
+    }
+  }
+
+  handleAddingNewBeerToList = (newBeer) => {
+    const newMainBeerList = this.state.mainBeerList.concat(newBeer);
     this.setState({
-      formVisibleOnPage: false,
-      selectedBeer: null
+      mainBeerList: newMainBeerList,
+      formVisibleOnPage: false 
     });
-  } else {
-    this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage,
-    }));
+  }
+
+  handleDecrementBeerQuantity = (quantityBeer) => {
+    const updateBeerQuantity = [...this.state.mainBeerList];
+    updateBeerQuantity[quantityBeer].quantity = updateBeerQuantity[quantityBeer].quantity-1;
+    this.setState({
+      mainBeerList: updateBeerQuantity
+    })
+  }
+
+  render() {
+    let currentlyVisibleState = null;
+    let buttonText = null;
+    if (this.state.formVisibleOnPage) {
+      currentlyVisibleState = <NewBeerForm onNewBeerCreation={this.handleAddingNewBeerToList} />;
+      buttonText = "Return to Beer List";
+    } else {
+      currentlyVisibleState = <BeerList onDecrementBeerQuantity={this.handleDecrementBeerQuantity}
+      beerList={this.state.mainBeerList} />;
+      buttonText = "Add Beer";
+    }
+    return (
+      <React.Fragment>
+        {currentlyVisibleState}
+        <button onClick={this.handleClick}>{buttonText}</button>
+      </React.Fragment>
+    );
   }
 }
 
-handleAddingNewBeerToList = (newBeer) => {
-  const newMainBeerList = this.state.mainBeerList.concat(newBeer);
-  this.setState({
-    mainBeerList: newMainBeerList,
-    formVisibleOnPage: false 
-  });
-}
-
-handleDecrementItemQuantity = (quantityItem) => {
-  const updateItemQuantity = [...this.state.mainItemList];
-  updateItemQuantity[quantityItem].quantity = updateItemQuantity[quantityItem].quantity-1;
-  this.setState({
-    mainItemList: updateItemQuantity
-  })
-}
+export default BeerControl;
