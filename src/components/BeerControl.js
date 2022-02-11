@@ -8,7 +8,8 @@ class BeerControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainBeerList: []
+      mainBeerList: [],
+      selectedTicket: null
     };
   }
 
@@ -44,12 +45,22 @@ class BeerControl extends React.Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewBeerForm onNewBeerCreation={this.handleAddingNewBeerToList} />;
+
+    if (this.state.selectedBeer != null) {
+      currentlyVisibleState = <BeerDetail 
+                              beer= {this.state.selectedBeer} 
+                              />
       buttonText = "Return to Beer List";
-    } else {
-      currentlyVisibleState = <BeerList onDecrementBeerQuantity={this.handleDecrementBeerQuantity}
-      beerList={this.state.mainBeerList} />;
+    } 
+    else if (this.state.formVisibleOnPage) {
+      currentlyVisibleState = <NewBeerForm 
+                              onNewBeerCreation={this.handleAddingNewBeerToList} />;
+      buttonText = "Return to Beer List";
+    } 
+    else {
+      currentlyVisibleState = <BeerList 
+                              onDecrementBeerQuantity={this.handleDecrementBeerQuantity}
+                              beerList={this.state.mainBeerList} />;
       buttonText = "Add Beer";
     }
     return (

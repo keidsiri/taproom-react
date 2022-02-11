@@ -17,13 +17,14 @@ function NewBeerForm(props) {
           type='text'
           name='name'
           placeholder='IPA' />
-        <textarea
-            name='brand'
-            placeholder='Elysian' />
+        <input
+          type='text'
+          name='brand'
+          placeholder='Elysian' />
         <input
           type='number'
           name='quantity'
-          placeholder='124' />
+          placeholder='Qty.' />
         <input
           type='number'
           name='price'

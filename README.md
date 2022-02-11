@@ -1,8 +1,8 @@
 # Tap Room
 
-### This is independent project that allows users to create drinks and track the amount of drink from selling,
+### This is independent project that allows users to create drinks and track the amount of drink from selling
 
-#### Kate Kiatsiri
+### Created by: Kate Kiatsiri
 
 ## Technologies Used
 
@@ -13,12 +13,11 @@
 * HTML
 
 ## Description
-This application was created to show understanding of building single page web apps with React js Library. This application contains full CRUD functionality, allowing the user to:
+This application was created to show understanding of building single page web apps with React js Library. This application contains CREATE and READ functionality, allowing the user to:
   - track how many pints are left in each keg
   - add new keg
   - see details of keg
   - sell pints from existing kegs
-  - add pints to existing kegs
 
 Requested User Specifications (user stories):
   - As a user, I want to see a list/menu of all available kegs. For each keg, I want to see its name, brand, price and alcoholContent (or perhaps something like flavor for a kombucha store).
@@ -33,7 +32,7 @@ Requested User Specifications (user stories):
 
 ## Setup/Installation Requirements
 
-* Download or clone [this](https://github.com/chynnalew/tap-room) repository to your local machine
+* Download or clone [this](https://github.com/keidsiri/taproom-react) repository to your local machine
 * Open the root project directory in the terminal
 * Run the command '$ npm install' to install the needed plugins and packages
 * Open the application by running the command '$ npm run start'.
@@ -45,4 +44,4 @@ Requested User Specifications (user stories):
 [MIT](https://opensource.org/licenses/MIT) 2021
 
 ## Contact Information
-[Kiatsiri](github.com/keidsiri)
+[Kate Kiatsiri](github.com/keidsiri)
