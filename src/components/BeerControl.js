@@ -62,6 +62,11 @@ class BeerControl extends React.Component {
                               onNewBeerCreation={this.handleAddingNewBeerToList} />;
       buttonText = "Return to Beer List";
     } 
+    else if (this.state.formVisibleOnPage) {
+      currentlyVisibleState = <NewBeerForm 
+                              onNewBeerCreation={this.handleAddingNewBeerToList} />;
+      buttonText = "Return to Beer List";
+    } 
     else {
       currentlyVisibleState = <BeerList 
                               onDecrementBeerQuantity={this.handleDecrementBeerQuantity}
