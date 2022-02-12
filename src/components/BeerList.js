@@ -7,9 +7,11 @@ function BeerList(props){
     <React.Fragment>
         {props.beerList.map((beer, index) =>
           <Beer
+            whenBeerClicked = { props.onBeerSelection }
             content = {beer}
             position = {index}
             method = {props.onDecrementBeerQuantity}
+            id={beer.id}
             key = {beer.id}
             />
             
@@ -19,7 +21,8 @@ function BeerList(props){
 }
 
 BeerList.propTypes = {
-  beerList: PropTypes.array
+  beerList: PropTypes.array,
+  onBeerSelection: PropTypes.func
 };
 
 export default BeerList;

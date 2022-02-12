@@ -9,7 +9,7 @@ class BeerControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       mainBeerList: [],
-      selectedTicket: null
+      selectedBeer: null
     };
   }
 
@@ -40,6 +40,11 @@ class BeerControl extends React.Component {
     this.setState({
       mainBeerList: updateBeerQuantity
     })
+  }
+
+  handleChangingSelectedBeer = (id) => {
+    const selectedBeer = this.state.mainBeerList.filter(beer => beer.id === id)[0];
+    this.setState({selectedBeer: selectedBeer});
   }
 
   render() {

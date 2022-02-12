@@ -13,6 +13,7 @@ function Beer(props){
   return (
     <React.Fragment>
       <div key={props.content.id}>
+      <div onClick = {() => props.whenBeerClicked(props.id)}></div>
         <h3>{props.content.name}</h3>
         <p>{props.content.brand}</p>
         <p>{parseInt(props.content.quantity)}</p>
@@ -30,7 +31,9 @@ Beer.propTypes = {
   brand: PropTypes.string,
   quantity: PropTypes.number,
   price: PropTypes.number,
-  alcoholContent: PropTypes.number
+  alcoholContent: PropTypes.number,
+  id: PropTypes.string, 
+  whenBeerClicked: PropTypes.func
 };
 
 export default Beer;
